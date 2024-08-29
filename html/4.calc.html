@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Exchange Rate Calculator</title>
+        <script src="../dist/4.calc.js" defer></script>
+	</head>
+	<body>
+		<h1>환율계산기</h1>
+		<p>통화와 금액을 선택하세요</p>
+		<div class="container">
+			<div class="currency">
+				<select id="currency-one"></select>
+				<input
+					type="number"
+					id="amount-one"
+					placeholder="0"
+					value="1"
+				/>
+			</div>
+			<div class="swap-rate-container">
+				<button class="btn" id="swap">바꾸기</button>
+			</div>
+			<div class="currency">
+				<select id="currency-two"></select>
+				<input type="number" id="amount-two" placeholder="0" />
+			</div>
+		</div>
+		<div class="rate" id="rate"></div>
+	</body>
+</html>

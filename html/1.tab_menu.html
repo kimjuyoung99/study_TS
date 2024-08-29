@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .tab-container {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        #tab-buttons {
+            display: flex;
+            background-color: #f1f1f1;
+        }
+        #tab-buttons > button {
+            background-color: inherit;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+            flex-grow: 1;
+        }
+        #tab-buttons > button:hover {
+            background-color: #ddd;
+        }
+        #tab-buttons > button.active {
+            background-color: #ccc;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            animation: fadeEffect 1s;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeEffect {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>탭 메뉴 UI 예제</h1>
+		<section class="tab-container">
+			<div id="tab-buttons">
+				<button data-btnindex="1">탭 1</button>
+				<button data-btnindex="2">탭 2</button>
+				<button data-btnindex="3">탭 3</button>
+			</div>
+
+			<div id="tab1" class="tab-content">
+				<h2>탭 1 내용</h2>
+				<p>여기는 탭 1의 내용입니다. 원하는 내용을 넣어주세요.</p>
+			</div>
+
+			<div id="tab2" class="tab-content">
+				<h2>탭 2 내용</h2>
+				<p>
+					여기는 탭 2의 내용입니다. 다양한 정보를 표시할 수 있습니다.
+				</p>
+			</div>
+
+			<div id="tab3" class="tab-content">
+				<h2>탭 3 내용</h2>
+				<p>
+					여기는 탭 3의 내용입니다. 탭 메뉴를 통해 정보를 구조화할 수
+					있습니다.
+				</p>
+			</div>
+		</section>
+</body>
+<script>
+    // 탭 버튼 컨테이너와 탭 내용들을 선택합니다.
+    const tabButtons = document.getElementById("tab-buttons");
+    const tabContents = document.querySelectorAll(".tab-content");
+
+    function openTab(i) {
+        // 모든 탭 내용과 버튼의 active 클래스를 토글합니다.
+        tabContents.forEach((content, index) => {
+            content.classList.toggle("active", index === i - 1);
+        });
+
+        tabButtons.querySelectorAll("button").forEach((button) => {
+            button.classList.toggle(
+                "active",
+                button.dataset.btnindex === i
+            );
+        });
+    }
+
+    // 이벤트 위임을 사용하여 탭 버튼 컨테이너에 이벤트 리스너를 추가합니다
+    tabButtons.addEventListener("click", (event) => {
+        const clickedButton = event.target.closest("button");
+        if (clickedButton) {
+            openTab(clickedButton.dataset.btnindex);
+        }
+    });
+
+    // 초기 상태 설정: 첫 번째 탭을 활성화합니다
+    openTab("1");
+</script>
+</html>

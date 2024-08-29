@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>문서 제목</title>
+
+		<style>
+			#draggable-list {
+				width: 250px;
+			}
+			#draggable-list li {
+				padding: 1rem;
+				border: 1px solid #ccc;
+				background-color: #eaeaea;
+			}
+			.dragging {
+				opacity: 0.8;
+				background-color: aliceblue;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>드래그 가능한 요소</h1>
+		<ul id="draggable-list">
+			<li draggable="true">항목1</li>
+			<li draggable="true">항목2</li>
+			<li draggable="true">항목3</li>
+			<li draggable="true">항목4</li>
+			<li draggable="true">항목5</li>
+			<li draggable="true">항목6</li>
+		</ul>
+		<!-- 
+      dragstart
+      dragend
+      dragover
+    --></body>
+</html>
